@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DF62DDE8-2957-46AD-8E1E-071A8610633B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>EmgucvDemo</RootNamespace>
-    <AssemblyName>EmgucvDemo</AssemblyName>
+    <RootNamespace>Digit</RootNamespace>
+    <AssemblyName>Digit</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

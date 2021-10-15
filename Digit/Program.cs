@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace EmgucvDemo
+namespace Digit
 {
     internal static class Program
     {

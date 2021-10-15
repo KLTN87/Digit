@@ -1,5 +1,5 @@
 ﻿
-namespace EmgucvDemo
+namespace Digit
 {
     partial class formMNISTRecogntion
     {
