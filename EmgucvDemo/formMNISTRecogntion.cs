@@ -29,7 +29,7 @@ namespace EmgucvDemo
                 //dialog.Filter = "ONNX Files (*.onnx;)|*.onnx;";
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    model = DnnInvoke.ReadNetFromONNX(dialog.FileName);
+                    model = DnnInvoke.ReadNetFromTensorflow(dialog.FileName);
                     lblMessage.Text = "Model Loaded.";
                 }
             }
@@ -98,11 +98,13 @@ namespace EmgucvDemo
 
                 if (model == null)
                 {
-                    throw new Exception("Load the ONNX model.");
+                    throw new Exception("Load model.");
                 }
 
                 Bitmap bm = new Bitmap(pictureBox1.ClientSize.Width, pictureBox1.ClientSize.Height);
                 pictureBox1.DrawToBitmap(bm, pictureBox1.ClientRectangle);
+
+
 
                 var img = bm.ToImage<Gray, byte>()
                     .Not()
@@ -114,13 +116,8 @@ namespace EmgucvDemo
                 model.SetInput(input);
                 var output = model.Forward();
 
-                //MessageBox.Show(output.ToString());
-
                 float[] array = new float[10];
                 output.CopyTo(array);
-
-
-                //string g = "a";
 
                 var prob = SoftMax(array);
                 int index = Array.IndexOf(prob, prob.Max());
@@ -136,9 +133,7 @@ namespace EmgucvDemo
                 {
                     chart1.Series["Hist"].Points.AddXY(i, prob[i]);
                 }
-                label2.Text = index.ToString();
 
-                //pictureBox1.Image = img.AsBitmap();
             }
             catch (Exception ex)
             {
