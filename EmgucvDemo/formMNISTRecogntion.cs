@@ -30,7 +30,7 @@ namespace EmgucvDemo
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     model = DnnInvoke.ReadNetFromTensorflow(dialog.FileName);
-                    lblMessage.Text = "Model Loaded.";
+                    MessageBox.Show("Model loaded");
                 }
             }
             catch (Exception ex)
@@ -93,12 +93,12 @@ namespace EmgucvDemo
             {
                 if (pictureBox1.Image == null)
                 {
-                    throw new Exception("Draw a digit.");
+                    MessageBox.Show("Draw a digit or open images");
                 }
 
                 if (model == null)
                 {
-                    throw new Exception("Load model.");
+                    MessageBox.Show("Please load model");
                 }
 
                 Bitmap bm = new Bitmap(pictureBox1.ClientSize.Width, pictureBox1.ClientSize.Height);
@@ -150,5 +150,50 @@ namespace EmgucvDemo
 
             return exp.Select(x => x / sum).ToArray();
         }
+
+        private void openImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Title = "Select images";
+            opf.Filter = "Image Files | *.jpg; *.jpeg; *.png";
+
+            if (opf.ShowDialog() == DialogResult.OK)
+            {
+                string filename = opf.FileName;
+                var img = Image.FromFile(filename);
+                img = invertImageColors(img);
+                pictureBox1.Image = resizeImage(img, new Size(180, 180));
+
+
+            }
+        }
+
+
+        public static Image resizeImage(Image imgToResize, Size size)
+        {
+            return (Image)(new Bitmap(imgToResize, size));
+        }
+
+
+
+        public static Image invertImageColors(Image img)
+        {
+
+            Bitmap pic = new Bitmap(img);
+
+
+            for (int y = 0; (y <= (pic.Height - 1)); y++)
+            {
+                for (int x = 0; (x <= (pic.Width - 1)); x++)
+                {
+                    Color inv = pic.GetPixel(x, y);
+                    inv = Color.FromArgb(255, (255 - inv.R), (255 - inv.G), (255 - inv.B));
+                    pic.SetPixel(x, y, inv);
+                }
+            }
+
+            return pic;
+        }
+
     }
 }

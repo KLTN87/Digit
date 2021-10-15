@@ -29,19 +29,19 @@ namespace EmgucvDemo
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadONNXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblDigit = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblMessage = new System.Windows.Forms.Label();
             this.predictToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -64,7 +64,8 @@ namespace EmgucvDemo
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadONNXToolStripMenuItem});
+            this.loadONNXToolStripMenuItem,
+            this.openImageToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -79,7 +80,6 @@ namespace EmgucvDemo
             // panel1
             // 
             this.panel1.Controls.Add(this.chart1);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblDigit);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -93,39 +93,29 @@ namespace EmgucvDemo
             // 
             // chart1
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
+            chartArea10.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea10);
             this.chart1.Location = new System.Drawing.Point(242, 68);
             this.chart1.Margin = new System.Windows.Forms.Padding(2);
             this.chart1.Name = "chart1";
-            series5.ChartArea = "ChartArea1";
-            series5.Name = "Hist";
-            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.chart1.Series.Add(series5);
+            series10.ChartArea = "ChartArea1";
+            series10.Name = "Hist";
+            series10.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series10.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.chart1.Series.Add(series10);
             this.chart1.Size = new System.Drawing.Size(448, 188);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "chart1";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(34, 50);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 17);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Draw a digit (0-9)";
-            // 
             // lblDigit
             // 
             this.lblDigit.AutoSize = true;
-            this.lblDigit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblDigit.Location = new System.Drawing.Point(194, 76);
+            this.lblDigit.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDigit.ForeColor = System.Drawing.Color.Red;
+            this.lblDigit.Location = new System.Drawing.Point(210, 76);
             this.lblDigit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDigit.Name = "lblDigit";
-            this.lblDigit.Size = new System.Drawing.Size(0, 20);
+            this.lblDigit.Size = new System.Drawing.Size(0, 33);
             this.lblDigit.TabIndex = 4;
             // 
             // button1
@@ -147,7 +137,7 @@ namespace EmgucvDemo
             this.pictureBox1.Location = new System.Drawing.Point(9, 68);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(172, 189);
+            this.pictureBox1.Size = new System.Drawing.Size(180, 180);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -169,6 +159,13 @@ namespace EmgucvDemo
             this.predictToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.predictToolStripMenuItem.Text = "Predict";
             this.predictToolStripMenuItem.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // openImageToolStripMenuItem
+            // 
+            this.openImageToolStripMenuItem.Name = "openImageToolStripMenuItem";
+            this.openImageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openImageToolStripMenuItem.Text = "Open Image";
+            this.openImageToolStripMenuItem.Click += new System.EventHandler(this.openImageToolStripMenuItem_Click);
             // 
             // formMNISTRecogntion
             // 
@@ -199,11 +196,11 @@ namespace EmgucvDemo
         private System.Windows.Forms.ToolStripMenuItem loadONNXToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblMessage;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblDigit;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.ToolStripMenuItem predictToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openImageToolStripMenuItem;
     }
 }
