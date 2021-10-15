@@ -161,7 +161,7 @@ namespace Digit
             {
                 string filename = opf.FileName;
                 var img = Image.FromFile(filename);
-                img = invertImageColors(img);
+                //img = invertImageColors(img);
                 pictureBox1.Image = resizeImage(img, new Size(180, 180));
 
 
